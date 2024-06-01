@@ -12,24 +12,24 @@ app.use(express.json());
 app.get("/", express.static(staticPath));
 
 // POST endpoint to create a new subscriber
-app.post("/api/subscribers", async (req, res) => {
-  try {
-    const { name, subscribedChannel, subscribedDate } = req.body;
-    const newSubscriber = new subscriberModel({
-      name,
-      subscribedChannel,
-      subscribedDate,
-    });
-    await newSubscriber.save();
-    res.status(201).json({
-      message: "Subscriber created successfully",
-      data: newSubscriber,
-    });
-  } catch (error) {
-    console.error("Error creating subscriber:", error);
-    res.status(500).json({ error: "Failed to create subscriber" });
-  }
-});
+// app.post("/api/subscribers", async (req, res) => {
+//   try {
+//     const { name, subscribedChannel, subscribedDate } = req.body;
+//     const newSubscriber = new subscriberModel({
+//       name,
+//       subscribedChannel,
+//       subscribedDate,
+//     });
+//     await newSubscriber.save();
+//     res.status(201).json({
+//       message: "Subscriber created successfully",
+//       data: newSubscriber,
+//     });
+//   } catch (error) {
+//     console.error("Error creating subscriber:", error);
+//     res.status(500).json({ error: "Failed to create subscriber" });
+//   }
+// });
 
 // GET endpoint to fetch all subscribers
 app.get("/api/subscribers", async (req, res) => {
@@ -40,6 +40,7 @@ app.get("/api/subscribers", async (req, res) => {
     res.status(400).json({
       error: "Bad Request",
     });
+    return;
   }
 });
 
@@ -55,6 +56,7 @@ app.get("/api/subscribers/names", async (req, res) => {
     res.status(400).json({
       error: "Bad Request",
     });
+    return;
   }
 });
 
@@ -68,6 +70,7 @@ app.get("/api/subscribers/:id", async (req, res) => {
     res.status(400).json({
       message: error.message,
     });
+    return;
   }
 });
 

@@ -3,13 +3,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const subscriberModel = require("./models/subscribers");
-// const staticPath = path.join(__dirname, "../public");
+const staticPath = path.join(__dirname, "../public");
 
 // Middleware to parse JSON bodies
 // app.use(express.json());
 
 // Serving static files
-// app.get("/", express.static(staticPath));
+app.get("/", express.static(staticPath));
 
 // POST endpoint to create a new subscriber
 // app.post("/api/subscribers", async (req, res) => {

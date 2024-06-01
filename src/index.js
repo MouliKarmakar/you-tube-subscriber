@@ -4,7 +4,7 @@ require("dotenv").config({
 const express = require("express");
 const app = require("./app.js");
 const mongoose = require("mongoose");
-const port = 3000;
+const port = 10000;
 console.log("DBURI =", process.env.DBURI);
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());

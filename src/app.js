@@ -6,7 +6,7 @@ const subscriberModel = require("./models/subscribers");
 // const staticPath = path.join(__dirname, "../public");
 
 // Middleware to parse JSON bodies
-app.use(express.json());
+// app.use(express.json());
 
 // Serving static files
 // app.get("/", express.static(staticPath));

@@ -40,7 +40,6 @@ app.get("/subscribers", async (req, res) => {
     res.status(400).json({
       error: "Bad Request",
     });
-    return;
   }
 });
 
@@ -56,7 +55,6 @@ app.get("/subscribers/names", async (req, res) => {
     res.status(400).json({
       error: "Bad Request",
     });
-    return;
   }
 });
 
@@ -70,7 +68,6 @@ app.get("/subscribers/:id", async (req, res) => {
     res.status(400).json({
       message: error.message,
     });
-    return;
   }
 });
 

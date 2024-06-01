@@ -9,7 +9,7 @@ const staticPath = path.join(__dirname, "../public");
 app.use(express.json());
 
 // Serving static files
-app.use(express.static(staticPath));
+app.get("/", express.static(staticPath));
 
 // POST endpoint to create a new subscriber
 app.post("/api/subscribers", async (req, res) => {

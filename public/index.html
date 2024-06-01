@@ -29,9 +29,7 @@
             <h1 class="fw-bold mb-0 fs-4">Youtube Subscriber Finder</h1>
           </div>
           <div class="modal-body p-5 pt-0">
-            <a
-              href="https://you-tube-subscriber-9e2a.vercel.app/api/subscribers"
-            >
+            <a href="https://you-tube-subscriber-9e2a.vercel.app/subscribers">
               <button
                 class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3"
               >
@@ -39,7 +37,7 @@
               </button></a
             >
             <a
-              href="https://you-tube-subscriber-9e2a.vercel.app/api/subscribers/names"
+              href="https://you-tube-subscriber-9e2a.vercel.app/subscribers/names"
             >
               <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3">
                 /subscribers/names
@@ -74,7 +72,7 @@
         let text = element.value.trim();
         if (text !== "") {
           // let url = "http://localhost:3000/api/subscribers";
-          let toDirect = `https://you-tube-subscriber-9e2a.vercel.app/api/subscribers/${text}`;
+          let toDirect = `https://you-tube-subscriber-9e2a.vercel.app/subscribers/${text}`;
           window.location.href = toDirect;
           elem.value = "";
         }

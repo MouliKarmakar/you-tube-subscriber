@@ -3,13 +3,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const subscriberModel = require("./models/subscribers");
-const staticPath = path.join(__dirname, "../public");
+// const staticPath = path.join(__dirname, "../public");
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 
 // Serving static files
-app.get("/", express.static(staticPath));
+// app.get("/", express.static(staticPath));
 
 // POST endpoint to create a new subscriber
 // app.post("/api/subscribers", async (req, res) => {
@@ -32,7 +32,7 @@ app.get("/", express.static(staticPath));
 // });
 
 // GET endpoint to fetch all subscribers
-app.get("/api/subscribers", async (req, res) => {
+app.get("/subscribers", async (req, res) => {
   try {
     const subs = await subscriberModel.find();
     res.status(200).json(subs);
@@ -45,7 +45,7 @@ app.get("/api/subscribers", async (req, res) => {
 });
 
 // GET endpoint to fetch subscriber names and channels
-app.get("/api/subscribers/names", async (req, res) => {
+app.get("/subscribers/names", async (req, res) => {
   try {
     const subs = await subscriberModel.find(
       {},
@@ -61,7 +61,7 @@ app.get("/api/subscribers/names", async (req, res) => {
 });
 
 // GET endpoint to fetch subscriber by ID
-app.get("/api/subscribers/:id", async (req, res) => {
+app.get("/subscribers/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const subs = await subscriberModel.findById(id);

@@ -1,0 +1,247 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2024-06-04T03:20:19.145Z",
+    "end": "2024-06-04T03:20:19.302Z",
+    "duration": 157,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b91b4a7d-27fc-4577-94d1-cb65e703db87",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "98923fb2-57a1-4148-89ec-f76b408ce151",
+          "title": "Subscribers API",
+          "fullFile": "C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js",
+          "file": "\\src\\app.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Subscribers API\"",
+              "fullTitle": "Subscribers API \"before all\" hook in \"Subscribers API\"",
+              "timedOut": false,
+              "duration": 74,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Connect to the test database before running tests\nmongoose.connect(\n  process.env.DBURI || \"mongodb://localhost/subscribers_test\",\n  { useNewUrlParser: true, useUnifiedTopology: true },\n  async () => {\n    // Clean and populate the database with sample data\n    await subscriberModel.deleteMany({});\n    await subscriberModel.insertMany(data);\n    done();\n  }\n);",
+              "err": {},
+              "uuid": "03942963-daac-4426-894e-0fde7a33d362",
+              "parentUUID": "98923fb2-57a1-4148-89ec-f76b408ce151",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Subscribers API\"",
+              "fullTitle": "Subscribers API \"after all\" hook in \"Subscribers API\"",
+              "timedOut": false,
+              "duration": 8,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Disconnect from the test database after running tests\nmongoose.connection.close(() => {\n  done();\n});",
+              "err": {},
+              "uuid": "fbcd2de1-0e80-4e29-98b6-d4e93cf43e33",
+              "parentUUID": "98923fb2-57a1-4148-89ec-f76b408ce151",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "5e8c4789-a577-4782-9349-11ef8a0397da",
+              "title": "GET /subscribers",
+              "fullFile": "C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js",
+              "file": "\\src\\app.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "it should GET all the subscribers",
+                  "fullTitle": "Subscribers API GET /subscribers it should GET all the subscribers",
+                  "timedOut": false,
+                  "duration": 40,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai\n  .request(app)\n  .get(\"/subscribers\")\n  .end((err, res) => {\n    res.should.have.status(200);\n    res.body.should.be.a(\"array\");\n    res.body.length.should.be.eql(data.length); // Check if the length matches the sample data\n    done();\n  });",
+                  "err": {
+                    "message": "TypeError: Cannot read properties of undefined (reading 'have')",
+                    "estack": "TypeError: Cannot read properties of undefined (reading 'have')\n    at C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js:39:22\n    at Request.callback (node_modules\\superagent\\lib\\node\\index.js:857:12)\n    at C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\node_modules\\superagent\\lib\\node\\index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:21:7)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "7a022f55-50ed-4336-8dc0-04d4f3894deb",
+                  "parentUUID": "5e8c4789-a577-4782-9349-11ef8a0397da",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "7a022f55-50ed-4336-8dc0-04d4f3894deb"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 40,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a30dc702-d3c3-43b7-b792-2d45d2851632",
+              "title": "GET /subscribers/names",
+              "fullFile": "C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js",
+              "file": "\\src\\app.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "it should GET names and subscribed channels of all subscribers",
+                  "fullTitle": "Subscribers API GET /subscribers/names it should GET names and subscribed channels of all subscribers",
+                  "timedOut": false,
+                  "duration": 9,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai\n  .request(app)\n  .get(\"/subscribers/names\")\n  .end((err, res) => {\n    res.should.have.status(200);\n    res.body.should.be.a(\"array\");\n    res.body.length.should.be.eql(data.length); // Check if the length matches the sample data\n    res.body[0].should.have.property(\"name\");\n    res.body[0].should.have.property(\"subscribedChannel\");\n    done();\n  });",
+                  "err": {
+                    "message": "TypeError: Cannot read properties of undefined (reading 'have')",
+                    "estack": "TypeError: Cannot read properties of undefined (reading 'have')\n    at C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js:53:22\n    at Request.callback (node_modules\\superagent\\lib\\node\\index.js:857:12)\n    at C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\node_modules\\superagent\\lib\\node\\index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:21:7)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "847d58c8-a628-49d6-b0a3-92fbec9ebd87",
+                  "parentUUID": "a30dc702-d3c3-43b7-b792-2d45d2851632",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "847d58c8-a628-49d6-b0a3-92fbec9ebd87"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 9,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "fcd0923e-83ac-4721-84d5-955814927a33",
+              "title": "GET /subscribers/:id",
+              "fullFile": "C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js",
+              "file": "\\src\\app.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "it should GET details of a subscriber by ID",
+                  "fullTitle": "Subscribers API GET /subscribers/:id it should GET details of a subscriber by ID",
+                  "timedOut": false,
+                  "duration": 13,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Fetch an existing subscriber ID from the sample data\nsubscriberModel.findOne({}, (err, subscriber) => {\n  chai\n    .request(app)\n    .get(`/subscribers/${subscriber._id}`)\n    .end((err, res) => {\n      res.should.have.status(200);\n      res.body.should.be.a(\"object\");\n      res.body.should.have.property(\"name\");\n      res.body.should.have.property(\"subscribedChannel\");\n      done();\n    });\n});",
+                  "err": {
+                    "message": "TypeError: Cannot read properties of undefined (reading 'have')",
+                    "estack": "TypeError: Cannot read properties of undefined (reading 'have')\n    at C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\src\\app.test.js:71:24\n    at Request.callback (node_modules\\superagent\\lib\\node\\index.js:857:12)\n    at C:\\Users\\mouli\\Desktop\\you-tube-subscriber\\node_modules\\superagent\\lib\\node\\index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:21:7)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "c2ffa8fa-13ed-4557-8f50-203aa95848d5",
+                  "parentUUID": "fcd0923e-83ac-4721-84d5-955814927a33",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "c2ffa8fa-13ed-4557-8f50-203aa95848d5"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 13,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
